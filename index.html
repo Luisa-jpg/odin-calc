@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
@@ -11,22 +14,38 @@
 <body>
 
     <div class="calc">
-        <div class="display"></div>
+        <div class="display">
+            <p>0123+45</p>
+        </div>
         <div class="buttons-wrapper">
             <div class="buttons-row">
-                <div></div><div></div><div></div><div></div>
+                <button type="button" id="ac">AC</button>
+                <button type="button" id="c">C</button>
+                <button type="button" class="operator-btn" id="power">^</button>
+                <button type="button" class="operator-btn" id="divide">/</button>
             </div>
             <div class="buttons-row">
-                <div></div><div></div><div></div><div></div>
+                <button type="button" id="1">1</button>
+                <button type="button" id="2">2</button>
+                <button type="button" id="3">3</button>
+                <button type="button" class="operator-btn" id="multiply">x</button>
             </div>
             <div class="buttons-row">
-                <div></div><div></div><div></div><div></div>
+                <button type="button" id="4">4</button>
+                <button type="button" id="5">5</button>
+                <button type="button" id="6">6</button>
+                <button type="button" class="operator-btn" id="substract">-</button>
             </div>
             <div class="buttons-row">
-                <div></div><div></div><div></div><div></div>
+                <button type="button" id="7">7</button>
+                <button type="button" id="8">8</button>
+                <button type="button" id="9">9</button>
+                <button type="button" class="operator-btn" id="add">+</button>
             </div>
             <div class="buttons-row">
-                <div></div><div></div><div></div><div></div>
+                <button type="button" id="0">0</button>
+                <button type="button" id="float">.</button>
+                <button type="button" class="operator-btn" id="equals">=</button>
             </div>
         </div>
     </div>

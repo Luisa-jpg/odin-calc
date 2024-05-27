@@ -1,5 +1,5 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Sometype Mono", monospace;
     background: linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%);
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@ p, h1, h2, h3, h4, h5, h6 {
     box-sizing: border-box;
     height: 550px;
     width: 430px;
-    background-color: aliceblue;
+    background-color: rgb(233, 242, 250);
     border-radius: 20px;
     box-shadow: 15px 15px 2px 1px rgba(0, 0, 255, .2), 15px 30px 20px rgba(11, 0, 32, 0.1);;
     display: flex;
@@ -29,10 +29,21 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .display {
-    background-color: rgb(71, 64, 107);
+    background-color: rgb(83, 70, 145);
     height: 100px;
     width: 350px;
     border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.display p {
+    font-size: 3em;
+    color: white;
+    text-align: right;
 }
 
 .buttons-wrapper {
@@ -53,8 +64,45 @@ p, h1, h2, h3, h4, h5, h6 {
     gap: 10px;
 }
 
-.buttons-row div {
+button {
     background-color: white;
     height: 60px;
     width: 80px;
+    color: rgb(83, 70, 145);
+    border-radius: 5px;
+    box-shadow: 5px 5px 2px rgba(0, 0, 255, .1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    font-size: 2em;
+    font-family: "Sometype Mono", monospace;
+    font-weight: 400;
+}
+
+.operator-btn {
+    background-color: hsl(294, 100%, 55%);
+    color: white;
+    font-weight: 600;
+}
+
+#equals, #ac, #c {
+    background-color: hsl(197, 100%, 63%);
+    color: white;
+}
+
+button:hover {
+    background-color: rgb(233, 242, 250);
+}
+
+button:active {
+    color: white;
+    background-color: hsl(294, 100%, 55%);
+}
+
+
+
+#equals {
+    width: 170px;
 }
