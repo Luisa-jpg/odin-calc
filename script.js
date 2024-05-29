@@ -1,6 +1,7 @@
 let result;
 let userInput ="";
 let nextOp = "";
+const opRegEx = /\^|\/|\x|\-|\+/;
 
 function add(num1, num2) {
   return num1 + num2;
@@ -22,22 +23,21 @@ function power(num1, num2) {
   return num1 ** num2;
 };
 
-function operate(num1, num2, operator) {
-  let result;
-  if (num1 === null || num2 === null || operator === null) {
-    alert (" ERROR ");
-  } else {
-    switch (operator) {
-      case '+': result = add(num1, num2); break;
-      case '-': result = subtract(num1, num2); break;
-      case '*': result = multiply(num1, num2); break;
-      case '/': result = divide(num1, num2); break;
-      case '^': result = power(num1, num2); break;
-    };
-    clear();
-    displayText.textContent = result;
-    return result;
+function operate() {
+  let num = userInput.split(opRegEx);
+  let op = opRegEx.exec(userInput)[0];
+
+  switch (op) {
+    case '+': result = add(+num[0], +num[1]); break;
+    case '-': result = subtract(+num[0], +num[1]); break;
+    case '*': result = multiply(+num[0], +num[1]); break;
+    case '/': result = divide(+num[0], +num[1]); break;
+    case '^': result = power(+num[0], +num[1]); break;
   };
+
+  clear();
+  displayText.textContent = result;
+  return result;
 };
 
 function clear() {
@@ -63,8 +63,7 @@ btnsWrapper.addEventListener('click', (e) => {
     } else if (e.target === btnC) {
       userInput = userInput.slice(0, -1);
       displayText.textContent = displayText.textContent.slice(0, -1);
-    }
-    else if (e.target.textContent === "=") {
+    } else if (e.target.textContent === "=") {
       operate();
     } else {
       displayText.textContent += e.target.textContent;
