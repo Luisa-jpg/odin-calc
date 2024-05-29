@@ -1,7 +1,7 @@
 let userInput ="";
 let nextOp = "";
-let nextNum1 = 0;
 const opRegEx = /\^|\/|\x|\-|\+/;
+let lastResult;
 
 function add(num1, num2) {
   return num1 + num2;
@@ -36,9 +36,8 @@ function operate() {
     case '^': result = power(+num[0], +num[1]); break;
   };
 
-  clear();
-  displayText.textContent = result;
-  userInput = result;
+  userInput = result.toString() + nextOp.toString();
+  nextOp = "";
   return result;
 };
 
@@ -46,7 +45,6 @@ function clear() {
   displayText.textContent = "";
   userInput = "";
   nextOp = "";
-  nextNum1 = 0;
 };
 
 const displayText = document.querySelector(".display p");
@@ -68,17 +66,28 @@ btnsWrapper.addEventListener('click', (e) => {
       userInput = userInput.slice(0, -1);
       displayText.textContent = userInput;
     } else if (e.target.textContent === "=") {
-        nextNum1 = operate();
+      lastResult = operate();
+      displayText.textContent = userInput;
     } else if (Array.from(operatorBtnList).includes(e.target)) {
         if (opRegEx.exec(userInput) !== null) {
-          nextNum1 = operate();
+          nextOp = e.target.textContent;
+          lastResult = operate();
+          displayText.textContent = userInput;
         } else {
-        userInput += e.target.textContent;
-        console.log(userInput);
-        displayText.textContent = userInput;
+          userInput += e.target.textContent;
+          displayText.textContent = userInput;
         };
-    } else {
-      userInput += e.target.textContent;
+    } else if (e.target === floatBtn) {
+        if (!userInput.includes(".")) {
+          userInput += e.target.textContent;
+          displayText.textContent = userInput;
+        }
+    } else { //number button is clicked
+      if (lastResult == userInput) {
+        userInput = e.target.textContent;
+      } else {
+        userInput += e.target.textContent;
+      };
       displayText.textContent = userInput;
     };
   };
